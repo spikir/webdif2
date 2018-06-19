@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<title>WebDif Webdesign</title>
+		<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script>
+			window.onload = function() {
+				document.body.style.opacity = 1;
+			}	
+			$(function() {
+				//----- OPEN
+				$('[data-popup-open]').on('click', function(e)  {
+					var targeted_popup_class = jQuery(this).attr('data-popup-open');
+					
+					$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+					e.preventDefault();
+				});
+			 
+				//----- CLOSE
+				$('[data-popup-close]').on('click', function(e)  {
+					var targeted_popup_class = jQuery(this).attr('data-popup-close');
+					$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+			 
+					e.preventDefault();
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<div class="title">
+			<h1>WebDif Designs</h1>
+			<h4>Front End | Back End</h4>
+		</div>
+		<div class="navi">
+			<ul>
+				<li><a data-popup-open="popup-1" href="#">About</a></li>
+				<li><a data-popup-open="popup-2" href="#">Projects</a></li>
+				<li><a data-popup-open="popup-3" href="#">Contact</a></li>
+			</ul>
+		</div>
+
+		<div class="popup" data-popup="popup-1">
+			<div class="popup-inner">
+				<h2>Home</h2>
+				<div class="content">
+					<p>Websites done right! I'm a web developer from Switzerland. I like to build different websites for small business and personal uses. If you are looking for hiring a web developer, please contact me.</p>
+					<p>
+						My hobby is web development. To improve the coding skills is one of my aims. In the last time, I developed different web projects with responsive design (site for desktop, mobile, tablet) in PHP, MySQL, HTML, CSS and a little JavaScript. These projects were released as demo projects
+						<ul>
+							<li>WebDif website</li>
+							<li>MVC Login</li>
+							<li>MVC Cart</li>
+							<li>Fluid templates</li>
+						</ul>
+						These projects are still in the development phase. I try to add new features, renew the code as fast as possible and fix all the bugs that I can find.
+					</p>
+					<p><a data-popup-close="popup-1" href="#">Close</a></p>
+					<a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+				</div>
+			</div>
+		</div>
+		<div class="popup" data-popup="popup-2">
+			<div class="popup-inner">
+				<h2>Projects</h2>
+				<div class="content">
+					<p>Discovering new techniques & designs!</p>
+					<p>
+						<h3>MVC Login demo</h3>
+					</p>
+					<p>
+						<img src="img/mvc_login.png" alt="MVC login" height="100" width="200"/>
+						
+						This is simple login system based on MVC pattern with MySQL database. It contains only important functions as
+						<ul>
+							<li>Register</li>
+							<li>Login</li>
+						</ul>
+						You can download the login system on github under https://github.com/spikir/login_mvc
+					</p>
+					<div class="clear"></div>
+					<p>
+						<h3>MVC Cart demo</h3>
+					</p>
+					<img id="myImg2" src="img/mvc_cart.png" alt="MVC cart" height="100" width="200"/>
+					This is simple open source cart system based on MVC pattern with MySQL database. It contains different functions for users, but no functions for administrator. Most important functions are
+					<ul>
+						<li>Register</li>
+						<li>Login</li>
+						<li>Verify email for new users</li>
+						<li>Display items</li>
+						<li>Add items to cart</li>
+						<li>Remove items from cart</li>
+						<li>Change quantity of an item</li>
+						<li>Place order</li>
+						<li>Search an item</li>
+						<li>Sort items</li>
+						<li>Paging</li>
+					</ul>
+					You can download the cart system on github under https://github.com/spikir/cart_mvc
+					<div class="clear"></div>
+					<p>
+						<h3>Fluid one column html template</h3>
+					</p>
+					<img id="myImg3" src="img/html_template_fluid_one_column.png" alt="Fluid template one column" height="100" width="200"/>
+					This is fluid one column template in HTML
+					You can download the template on github under https://github.com/spikir/html_templates/fluid_one_column
+					<div class="clear"></div>
+					<p>
+						<h3>Fluid two columns html template</h3>
+					</p>
+					<img id="myImg4" src="img/html_template_fluid_two_column.png" alt="Fluid template one column" height="100" width="200"/>
+					This is fluid two columns template in HTML
+					You can download the template on github under https://github.com/spikir/html_templates/fluid_two_columns
+					<div class="clear"></div>
+					<p><a data-popup-close="popup-2" href="#">Close</a></p>
+					<a class="popup-close" data-popup-close="popup-2" href="#">x</a>
+				</div>
+			</div>
+		</div>
+		<div class="popup" data-popup="popup-3">
+			<div class="popup-inner">
+				<h2>Contact</h2>
+				<div class="content">
+					<p>For hiring or any suggestions for my projects, please contact me.</p>
+					<p>
+						<div class="form-style">
+							<form action="send_email.php" method="POST" ng-app="" name="form">
+								<input type="text" name="field1" placeholder="Your Name" ng-model="text1" required />
+								<span ng-show="form.field1.$touched && form.field1.$invalid">The name is required</span>
+								<input type="email" name="field2" placeholder="Your Email" ng-model="text2" required />
+								<span ng-show="form.field2.$error.email">Email is required</span>
+								<textarea name="field3" placeholder="Type your message" ng-model="text3" required></textarea>
+								<span ng-show="form.field3.$touched && form.field3.$invalid">Comment is required</span>
+								<input type="submit" value="Send" />
+							</form>
+						</div>
+					</p>
+					<p><a data-popup-close="popup-3" href="#">Close</a></p>
+					<a class="popup-close" data-popup-close="popup-3" href="#">x</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
